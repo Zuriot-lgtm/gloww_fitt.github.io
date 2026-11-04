@@ -1,103 +1,112 @@
-:root{--cream:#F8F5EF;--beige:#E9DFD2;--sage:#A3B18A;--ink:#252525;--white:#fff;--pink:#EACFD0;--sage-d:#5b6b44}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
-h1,h2,h3,.logo{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
-a{color:inherit}
-.nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 5vw;background:rgba(248,245,239,.9);backdrop-filter:blur(10px)}
-.logo{font-size:1.9rem;text-decoration:none}
-.nav nav{display:flex;gap:28px;margin-left:auto}
-.nav nav a{text-decoration:none;font-size:.95rem;opacity:.75}
-.nav nav a:hover{opacity:1}
-.nav-cta{background:var(--ink);color:var(--white);padding:10px 22px;border-radius:999px;text-decoration:none;font-size:.9rem;font-weight:500}
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:4vw;align-items:center;padding:7vh 5vw 10vh;max-width:1300px;margin:auto}
-.hero h1{font-size:clamp(3rem,8vw,6.6rem);margin:0 0 24px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-.hero p{max-width:46ch;font-size:1.15rem;margin:0;animation:rise .9s .12s cubic-bezier(.2,.7,.2,1) both}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;animation:rise .9s .24s cubic-bezier(.2,.7,.2,1) both}
-.btn{border:1.5px solid transparent;border-radius:999px;padding:14px 28px;font:inherit;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s,color .2s}
-.btn.dark{background:var(--ink);color:var(--white)}
-.btn.dark:hover{background:var(--sage-d)}
-.btn.line{border-color:var(--ink);background:transparent;color:var(--ink)}
-.btn.line:hover{background:var(--ink);color:var(--white)}
-.wrap{padding:84px 5vw;max-width:1240px;margin:auto}
-h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:0 0 28px}
-.tools{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px}
-.tools input,.tools select,.news input{padding:14px 18px;border:1px solid var(--beige);border-radius:999px;background:var(--white);font:inherit;min-width:0;color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px;margin:24px 0}
-.card{background:var(--white);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s}
-.card:hover{transform:translateY(-4px)}
-.thumb{margin:12px 12px 0;height:200px;border-radius:20px;display:grid;place-items:center;overflow:hidden}
-.thumb svg{width:62%;height:auto;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.card:hover .thumb svg{transform:scale(1.1) rotate(-4deg)}
-.body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
-.body h3{margin:0;font-size:1.5rem}
-.body p{margin:0;font-size:.95rem;opacity:.8}
-.tag{font-size:.82rem;color:var(--sage-d);font-weight:500}
-.price{font-weight:600;margin-top:auto;padding-top:8px}
-.body .btn{text-align:center;padding:11px 18px;margin-top:10px}
-.blog .card{background:var(--beige)}
-.blog .body{padding:28px}
-.muted{opacity:.65}.small{font-size:.85rem}
-.news{background:var(--pink);border-radius:40px;text-align:center;margin:40px auto;padding:72px 5vw}
-.news form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.news input{width:min(360px,100%)}
-#disclosure p{max-width:62ch}
-footer{display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center;padding:64px 5vw;background:var(--ink);color:var(--cream)}
-footer strong{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:3rem}
-:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
-@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-@media(max-width:860px){.nav nav{display:none}.nav-cta{margin-left:auto}}
-@media(max-width:600px){.tools{grid-template-columns:1fr 1fr}.tools input{grid-column:1/-1}.wrap{padding:56px 5vw}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+// ===== SETTINGS =====
+// Add your affiliate tracking tag here. It is appended to every Shop Now link.
+const AFFILIATE_PARAM = ""; // example: "tag=yourid-20"
 
-@keyframes slide{to{transform:translateX(-50%)}}
-.marquee{overflow:hidden;background:var(--ink);color:var(--cream);padding:18px 0}
-.track{display:flex;gap:32px;align-items:center;width:max-content;animation:slide 32s linear infinite}
-.track span{font-family:"Instrument Serif",Georgia,serif;font-size:1.8rem;white-space:nowrap}
-.track i{width:10px;height:10px;border-radius:50%;background:var(--sage);flex:none}
-.marquee:hover .track{animation-play-state:paused}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
-.card.reveal.in:hover{transform:translateY(-4px)}
+// ===== DEMO PRODUCTS (replace with real ones) =====
+// To add a product, copy one line and change it. "url" is your affiliate link.
+const products = [
+  {name:"Gentle Gel Cleanser",cat:"Skincare: Face Cleansers",price:14,emoji:"🧴",bg:"#EACFD0",desc:"Daily gel cleanser for most skin types.",url:"https://example.com/cleanser"},
+  {name:"Vitamin C Serum",cat:"Skincare: Vitamin C Serums",price:28,emoji:"🍊",bg:"#E9DFD2",desc:"Brightening serum for morning use.",url:"https://example.com/vitamin-c"},
+  {name:"Barrier Moisturizer",cat:"Skincare: Moisturizers",price:22,emoji:"🫧",bg:"#EACFD0",desc:"Lightweight cream with ceramides.",url:"https://example.com/moisturizer"},
+  {name:"Daily Mineral Sunscreen SPF 50",cat:"Skincare: Sunscreens",price:18,emoji:"☀️",bg:"#E9DFD2",desc:"Broad-spectrum protection, no white cast.",url:"https://example.com/sunscreen"},
+  {name:"Retinol Night Treatment",cat:"Skincare: Retinol",price:32,emoji:"🌙",bg:"#EACFD0",desc:"Night serum to help with fine lines.",url:"https://example.com/retinol"},
+  {name:"Adjustable Dumbbell Set",cat:"Fitness: Dumbbells",price:149,emoji:"🏋️",bg:"#A3B18A",desc:"Replaces several pairs, saves space.",url:"https://example.com/dumbbells"},
+  {name:"Resistance Band Set",cat:"Fitness: Resistance Bands",price:19,emoji:"🪢",bg:"#A3B18A",desc:"Five levels for strength and mobility.",url:"https://example.com/bands"},
+  {name:"Non-Slip Yoga Mat",cat:"Fitness: Yoga Mats",price:35,emoji:"🧘",bg:"#E9DFD2",desc:"6mm cushioning with strong grip.",url:"https://example.com/yoga-mat"},
+  {name:"Fitness Tracker",cat:"Fitness: Fitness Trackers",price:59,emoji:"⌚",bg:"#A3B18A",desc:"Steps, heart rate and sleep tracking.",url:"https://example.com/tracker"},
+  {name:"Foam Recovery Roller",cat:"Fitness: Recovery Products",price:24,emoji:"🌀",bg:"#E9DFD2",desc:"Eases sore muscles after workouts.",url:"https://example.com/roller"}
+];
 
-/* ===== CONTRAST + EASE OF USE ===== */
-.hero{box-shadow:0 0 0 100vmax var(--beige);clip-path:inset(0 -100vmax);background:var(--beige)}
-.hero p{opacity:.9}
-.nav{border-bottom:1px solid var(--beige)}
-.nav-cta,.btn.dark{background:var(--ink)}
-.nav-cta:hover{background:var(--sage-d)}
-#shop{padding-top:72px}
-.tools{position:sticky;top:66px;z-index:4;background:var(--cream);padding:12px 0}
-.tools input,.tools select{min-height:48px;border:1.5px solid var(--beige)}
-.tools input:focus,.tools select:focus{border-color:var(--sage-d);outline:none;box-shadow:0 0 0 3px rgba(163,177,138,.35)}
-.card{box-shadow:0 2px 0 var(--beige),0 12px 30px rgba(37,37,37,.05)}
-.body p{opacity:.88}
-.price{font-size:1.3rem}
-.price .muted{font-size:.75rem;font-weight:400}
-.body .btn{min-height:48px;display:flex;align-items:center;justify-content:center}
-.muted{opacity:.78}
-#blog{box-shadow:0 0 0 100vmax var(--pink);clip-path:inset(0 -100vmax);background:var(--pink)}
-.blog .card{background:var(--white)}
-.blog .body{padding:28px}
-.news{background:var(--beige)}
-.news .btn.dark{min-height:48px}
-#disclosure{box-shadow:0 0 0 100vmax var(--white);clip-path:inset(0 -100vmax);background:var(--white)}
-footer{border-top:6px solid var(--pink)}
-@media(max-width:860px){.tools{top:60px}}
+const $ = id => document.getElementById(id);
+const grid=$("grid"), search=$("search"), category=$("category"), price=$("price"), sort=$("sort");
 
-/* ===== GLOW ===== */
-.card,.news{transition:box-shadow .45s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
-.card:hover,.card.glow,.card:focus-within,.news:hover,.news.glow{box-shadow:0 0 0 2px var(--sage),0 0 34px rgba(163,177,138,.65),0 0 90px rgba(234,207,208,.95)}
+// Build category dropdown
+const cats = ["All categories","All Skincare","All Fitness",...new Set(products.map(p=>p.cat))];
+category.innerHTML = cats.map(c=>`<option>${c}</option>`).join("");
 
-/* ===== FULL HERO PHOTO BACKGROUND ===== */
-.top{position:relative;background:var(--beige);overflow:hidden}
-.top-photo{position:absolute;top:0;right:0;width:64%;height:100%;object-fit:cover;object-position:center 38%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 45%);mask-image:linear-gradient(to right,transparent 0,#000 45%);animation:fade 1.4s both}
-.hero{position:relative;z-index:1;display:flex;align-items:center;min-height:min(80vh,700px);max-width:1300px;margin:auto;padding:8vh 5vw;background:transparent;box-shadow:none;clip-path:none}
-.hero-text{max-width:560px}
-.hero h1{font-size:clamp(2.8rem,6.2vw,5.4rem)}
-@media(max-width:860px){
-  .top-photo{width:100%;-webkit-mask-image:none;mask-image:none;object-position:62% 35%}
-  .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(233,223,210,.9),rgba(233,223,210,.74));pointer-events:none}
-  .hero{min-height:auto;padding:12vh 5vw}
+function link(url){
+  if(!AFFILIATE_PARAM) return url;
+  return url + (url.includes("?")?"&":"?") + AFFILIATE_PARAM;
 }
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+
+
+// ===== PRODUCT ILLUSTRATIONS (drawn in code, no image files needed) =====
+// Each product has a "kind". To use a new drawing, set kind to one of: bottle, dropper, jar, tube, dumbbell, bands, mat, tracker, roller
+const K="stroke='#252525' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'";
+const ART={
+ bottle:`<rect x='40' y='38' width='40' height='72' rx='10' fill='#fff' ${K}/><rect x='50' y='20' width='20' height='18' rx='4' fill='#252525'/><rect x='46' y='62' width='28' height='24' rx='4' fill='#A3B18A' stroke='none'/>`,
+ dropper:`<rect x='42' y='50' width='36' height='60' rx='10' fill='#fff' ${K}/><rect x='52' y='36' width='16' height='14' fill='#252525'/><ellipse cx='60' cy='26' rx='9' ry='13' fill='#EACFD0' ${K}/><rect x='48' y='72' width='24' height='20' rx='4' fill='#E9DFD2' stroke='none'/>`,
+ jar:`<rect x='28' y='50' width='64' height='50' rx='12' fill='#fff' ${K}/><rect x='24' y='34' width='72' height='20' rx='8' fill='#252525'/><circle cx='60' cy='78' r='10' fill='#EACFD0' stroke='none'/>`,
+ tube:`<path d='M42 106V30h36v76z' fill='#fff' ${K}/><rect x='46' y='14' width='28' height='16' rx='3' fill='#252525'/><circle cx='60' cy='68' r='12' fill='#E9DFD2' stroke='#252525' stroke-width='2'/><path d='M60 60v16M52 68h16' stroke='#252525' stroke-width='2'/>`,
+ dumbbell:`<rect x='14' y='42' width='16' height='36' rx='4' fill='#252525'/><rect x='30' y='48' width='12' height='24' rx='3' fill='#fff' ${K}/><rect x='42' y='56' width='36' height='8' fill='#fff' ${K}/><rect x='78' y='48' width='12' height='24' rx='3' fill='#fff' ${K}/><rect x='90' y='42' width='16' height='36' rx='4' fill='#252525'/>`,
+ bands:`<circle cx='46' cy='62' r='28' fill='none' stroke='#A3B18A' stroke-width='9'/><circle cx='74' cy='62' r='28' fill='none' stroke='#252525' stroke-width='9'/><circle cx='60' cy='46' r='22' fill='none' stroke='#EACFD0' stroke-width='9'/>`,
+ mat:`<rect x='18' y='84' width='84' height='14' rx='7' fill='#A3B18A' ${K}/><circle cx='34' cy='56' r='26' fill='#E9DFD2' ${K}/><circle cx='34' cy='56' r='16' fill='none' stroke='#252525' stroke-width='2.5'/><circle cx='34' cy='56' r='6' fill='#252525'/><rect x='34' y='30' width='60' height='52' rx='4' fill='#E9DFD2' ${K}/>`,
+ tracker:`<rect x='46' y='6' width='28' height='28' fill='#252525'/><rect x='46' y='86' width='28' height='28' fill='#252525'/><rect x='34' y='30' width='52' height='60' rx='16' fill='#fff' ${K}/><path d='M44 62h10l5-12 8 24 5-12h6' fill='none' stroke='#A3B18A' stroke-width='3.5'/>`,
+ roller:`<rect x='22' y='36' width='76' height='48' rx='24' fill='#fff' ${K}/><path d='M46 36v48M70 36v48' stroke='#A3B18A' stroke-width='6'/><circle cx='34' cy='60' r='4' fill='#252525'/><circle cx='86' cy='60' r='4' fill='#252525'/>`
+};
+const kinds=["bottle","dropper","jar","tube","dropper","dumbbell","bands","mat","tracker","roller"];
+products.forEach((p,i)=>{p.kind=p.kind||kinds[i]});
+const art=p=>ART[p.kind]?`<svg viewBox='0 0 120 120' role='img' aria-label='${esc(p.name)}'>${ART[p.kind]}</svg>`:p.emoji;
+
+function render(){
+  const q = search.value.trim().toLowerCase();
+  const c = category.value;
+  const [min,max] = price.value==="all" ? [0,Infinity] : price.value.split("-").map(Number);
+  let list = products.filter(p=>{
+    const catOk = c==="All categories" || (c==="All Skincare"&&p.cat.startsWith("Skincare")) || (c==="All Fitness"&&p.cat.startsWith("Fitness")) || p.cat===c;
+    return catOk && p.price>=min && p.price<max && (p.name+p.desc+p.cat).toLowerCase().includes(q);
+  });
+  if(sort.value==="low") list.sort((a,b)=>a.price-b.price);
+  if(sort.value==="high") list.sort((a,b)=>b.price-a.price);
+  $("count").textContent = list.length+" product"+(list.length===1?"":"s");
+  grid.innerHTML = list.length ? list.map(p=>`
+    <article class="card">
+      <div class="thumb" style="background:${p.bg}" >${art(p)}</div>
+      <div class="body">
+        <span class="tag">${esc(p.cat)}</span>
+        <h3>${esc(p.name)}</h3>
+        <p>${esc(p.desc)}</p>
+        <span class="price">$${p.price} <span class="muted small">(demo price)</span></span>
+        <a class="btn dark" href="${link(p.url)}" target="_blank" rel="noopener noreferrer sponsored">Shop Now</a>
+      </div>
+    </article>`).join("") : "<p>No products match. Try clearing your filters.</p>";
+  reveal();
+}
+[search,category,price,sort].forEach(el=>el.addEventListener("input",render));
+
+document.querySelectorAll("[data-jump]").forEach(b=>b.addEventListener("click",()=>{
+  category.value = b.dataset.jump==="skincare" ? "All Skincare" : "All Fitness";
+  render();
+  $("shop").scrollIntoView({behavior:"smooth"});
+}));
+
+$("news-form").addEventListener("submit",e=>{
+  e.preventDefault();
+  // Demo only: connect a service like Mailchimp or ConvertKit to really collect emails.
+  $("news-msg").textContent = "Thanks! (Demo only: connect an email service to collect real signups.)";
+  e.target.reset();
+});
+
+$("year").textContent = new Date().getFullYear();
+
+// ===== SCROLL REVEAL (items fade up as you scroll) =====
+const io = "IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches
+  ? new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12}) : null;
+function reveal(){
+  document.querySelectorAll(".card:not(.reveal),.wrap h2,.news").forEach((el,i)=>{
+    if(!io) return;
+    el.classList.add("reveal");
+    el.style.transitionDelay=(el.classList.contains("card")?(i%4)*70:0)+"ms";
+    io.observe(el);
+  });
+}
+render();
+
+// ===== GLOW ON TOUCH (phones have no hover, so touching a card makes it glow) =====
+document.addEventListener("pointerdown",e=>{
+  const el=e.target.closest(".card,.news");
+  if(!el) return;
+  el.classList.add("glow");
+  setTimeout(()=>el.classList.remove("glow"),900);
+});
