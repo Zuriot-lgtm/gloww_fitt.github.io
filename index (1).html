@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glow Fit | Skincare, Fitness & Wellness Picks</title>
+<meta name="description" content="Glow Better. Feel Stronger. Live Healthier. Honest picks in skincare, fitness and wellness.">
+<meta property="og:title" content="Glow Fit">
+<meta property="og:description" content="Glow Better. Feel Stronger. Live Healthier.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#top">Glow Fit</a>
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#blog">Blog</a>
+    <a href="#newsletter">Newsletter</a>
+    <a href="#disclosure">Disclosure</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <h1>Your journey to a better you starts here.</h1>
+    <p>Skincare, fitness and wellness products we think are worth your money, with clear links to buy them.</p>
+    <div class="cta">
+      <button class="btn dark" data-jump="skincare">Explore Skincare</button>
+      <button class="btn light" data-jump="fitness">Discover Fitness</button>
+    </div>
+  </section>
+
+  <section id="shop" class="wrap">
+    <h2>Shop</h2>
+    <div class="tools">
+      <input id="search" type="search" placeholder="Search products" aria-label="Search products">
+      <select id="category" aria-label="Category"></select>
+      <select id="price" aria-label="Price">
+        <option value="all">Any price</option>
+        <option value="0-25">Under $25</option>
+        <option value="25-50">$25 to $50</option>
+        <option value="50-999">Over $50</option>
+      </select>
+      <select id="sort" aria-label="Sort">
+        <option value="featured">Featured</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+      </select>
+    </div>
+    <p id="count" class="muted"></p>
+    <div id="grid" class="grid"></div>
+    <p class="muted small">Prices and products are demo data. Replace them in script.js with real ones from your affiliate programs.</p>
+  </section>
+
+  <section id="blog" class="wrap">
+    <h2>Latest articles</h2>
+    <div class="grid blog">
+      <article class="card"><div class="body"><h3>A simple morning skincare routine</h3><p>Cleanser, vitamin C, moisturizer, sunscreen. Why order matters.</p></div></article>
+      <article class="card"><div class="body"><h3>20-minute home workout, no equipment</h3><p>A full-body plan you can do beside your bed.</p></div></article>
+      <article class="card"><div class="body"><h3>How to choose a yoga mat</h3><p>Thickness, grip and material, explained.</p></div></article>
+    </div>
+  </section>
+
+  <section id="newsletter" class="wrap news">
+    <h2>Get new picks in your inbox</h2>
+    <form id="news-form">
+      <input type="email" id="email" placeholder="you@example.com" required aria-label="Email">
+      <button class="btn dark" type="submit">Subscribe</button>
+    </form>
+    <p id="news-msg" class="muted" role="status"></p>
+  </section>
+
+  <section id="disclosure" class="wrap">
+    <h2>Affiliate disclosure</h2>
+    <p>Some links on this site are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. It never changes our recommendations.</p>
+  </section>
+</main>
+
+<footer>
+  <strong>Glow Fit</strong>
+  <span>Glow Better. Feel Stronger. Live Healthier.</span>
+  <span class="small">&copy; <span id="year"></span> Glow Fit. Contains affiliate links.</span>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
