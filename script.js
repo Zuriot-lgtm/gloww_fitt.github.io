@@ -2,14 +2,14 @@
 // Each product: name, cat (category), img (photo path without .webp/.jpg, optional), kind (drawing shown if no photo), bg (card color), desc, url (your Amazon link).
 // To add a product, copy one block and change it. Do not type prices: Amazon prices change.
 const products = [
-  {name:"Honest Beauty Gentle Gel Daily Face Cleanser",cat:"Skincare: Face Cleansers",img:"images/products/cleanser",kind:"bottle",bg:"#EACFD0",desc:"Gentle gel cleanser for sensitive skin. Vegan. 5 fl oz.",url:"https://link.amazon/B05VthwQt"},
-  {name:"Naturium Vitamin C Complex Serum",cat:"Skincare: Vitamin C Serums",img:"images/products/vitamin-c",kind:"dropper",bg:"#E9DFD2",desc:"Vitamin C serum with hyaluronic acid and vitamin E, to support a radiant-looking complexion. 1 fl oz.",url:"https://link.amazon/B04A6YJxi"},
-  {name:"La Roche-Posay Toleriane Double Repair Face Moisturizer",cat:"Skincare: Moisturizers",img:"images/products/moisturizer",kind:"jar",bg:"#EACFD0",desc:"Daily face cream with glycerin, niacinamide and ceramide. Oil free and fragrance free.",url:"https://link.amazon/B0gUsIkZc"},
-  {name:"La Roche-Posay Anthelios Mineral Light Fluid Sunscreen",cat:"Skincare: Sunscreens",img:"images/products/sunscreen",kind:"tube",bg:"#E9DFD2",desc:"Broad spectrum mineral sunscreen with titanium dioxide and zinc oxide. No white cast, oil free.",url:"https://link.amazon/B0dUzkPO8"},
-  {name:"CeraVe Retinol Serum with Niacinamide",cat:"Skincare: Retinol",img:"images/products/retinol",kind:"dropper",bg:"#EACFD0",desc:"Anti-aging serum with encapsulated retinol, hyaluronic acid and ceramides. 1 oz.",url:"https://link.amazon/B01FwOBJi"},
-  {name:"GOIMU Adjustable Dumbbells, 4 in 1 Free Weight Set",cat:"Fitness: Dumbbells",img:"images/products/dumbbells",kind:"dumbbell",bg:"#A3B18A",desc:"Adjustable weight set in 32, 54, 76 and 94 lb options.",url:"https://link.amazon/B0btLNGMB"},
-  {name:"Gruper Non-Slip Yoga Mat with Carrying Strap",cat:"Fitness: Yoga Mats",img:"images/products/yoga-mat",kind:"mat",bg:"#E9DFD2",desc:"Eco-friendly non-slip exercise mat with a carrying strap.",url:"https://link.amazon/B0hfz2oa1"},
-  {name:"Weighted Jump Rope for Fitness",cat:"Fitness: Workout Accessories",img:"images/products/jump-rope",kind:"rope",bg:"#A3B18A",desc:"Heavy skipping rope for home workouts, strength training and boxing.",url:"https://link.amazon/B0eF5hX9Y"}
+  {name:"Honest Beauty Gentle Gel Daily Face Cleanser",cat:"Skincare: Face Cleansers",img:"images/cleanser",kind:"bottle",bg:"#EACFD0",desc:"Gentle gel cleanser for sensitive skin. Vegan. 5 fl oz.",url:"https://link.amazon/B05VthwQt"},
+  {name:"Naturium Vitamin C Complex Serum",cat:"Skincare: Vitamin C Serums",img:"images/vitamin-c",kind:"dropper",bg:"#E9DFD2",desc:"Vitamin C serum with hyaluronic acid and vitamin E, to support a radiant-looking complexion. 1 fl oz.",url:"https://link.amazon/B04A6YJxi"},
+  {name:"La Roche-Posay Toleriane Double Repair Face Moisturizer",cat:"Skincare: Moisturizers",img:"images/moisturizer",kind:"jar",bg:"#EACFD0",desc:"Daily face cream with glycerin, niacinamide and ceramide. Oil free and fragrance free.",url:"https://link.amazon/B0gUsIkZc"},
+  {name:"La Roche-Posay Anthelios Mineral Light Fluid Sunscreen",cat:"Skincare: Sunscreens",img:"images/sunscreen",kind:"tube",bg:"#E9DFD2",desc:"Broad spectrum mineral sunscreen with titanium dioxide and zinc oxide. No white cast, oil free.",url:"https://link.amazon/B0dUzkPO8"},
+  {name:"CeraVe Retinol Serum with Niacinamide",cat:"Skincare: Retinol",img:"images/retinol",kind:"dropper",bg:"#EACFD0",desc:"Anti-aging serum with encapsulated retinol, hyaluronic acid and ceramides. 1 oz.",url:"https://link.amazon/B01FwOBJi"},
+  {name:"GOIMU Adjustable Dumbbells, 4 in 1 Free Weight Set",cat:"Fitness: Dumbbells",img:"images/dumbbells",kind:"dumbbell",bg:"#A3B18A",desc:"Adjustable weight set in 32, 54, 76 and 94 lb options.",url:"https://link.amazon/B0btLNGMB"},
+  {name:"Gruper Non-Slip Yoga Mat with Carrying Strap",cat:"Fitness: Yoga Mats",img:"images/yoga-mat",kind:"mat",bg:"#E9DFD2",desc:"Eco-friendly non-slip exercise mat with a carrying strap.",url:"https://link.amazon/B0hfz2oa1"},
+  {name:"Weighted Jump Rope for Fitness",cat:"Fitness: Workout Accessories",img:"images/jump-rope",kind:"rope",bg:"#A3B18A",desc:"Heavy skipping rope for home workouts, strength training and boxing.",url:"https://link.amazon/B0eF5hX9Y"}
 ];
 
 const $ = id => document.getElementById(id);
