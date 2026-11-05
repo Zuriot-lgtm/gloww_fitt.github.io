@@ -21,7 +21,7 @@ a{color:inherit}
 .btn.line:hover{background:var(--ink);color:var(--white)}
 .wrap{padding:84px 5vw;max-width:1240px;margin:auto}
 h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:0 0 28px}
-.tools{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px}
+.tools{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
 .tools input,.tools select,.news input{padding:14px 18px;border:1px solid var(--beige);border-radius:999px;background:var(--white);font:inherit;min-width:0;color:var(--ink)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px;margin:24px 0}
 .card{background:var(--white);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s}
