@@ -46,21 +46,15 @@
     <div class="tools">
       <input id="search" type="search" placeholder="Search products" aria-label="Search products">
       <select id="category" aria-label="Category"></select>
-      <select id="price" aria-label="Price">
-        <option value="all">Any price</option>
-        <option value="0-25">Under $25</option>
-        <option value="25-50">$25 to $50</option>
-        <option value="50-999">Over $50</option>
-      </select>
       <select id="sort" aria-label="Sort">
         <option value="featured">Featured</option>
-        <option value="low">Price: low to high</option>
-        <option value="high">Price: high to low</option>
+        <option value="az">Name: A to Z</option>
       </select>
     </div>
     <p id="count" class="muted"></p>
+    <p class="muted small">As an Amazon Associate I earn from qualifying purchases. Check the current price and availability on Amazon.</p>
     <div id="grid" class="grid"></div>
-    <p class="muted small">Prices and products are demo data. Replace them in script.js with real ones from your affiliate programs.</p>
+    
   </section>
 
   <section id="blog" class="wrap">
@@ -91,6 +85,7 @@
   <strong>Glow Fit</strong>
   <span>Glow Better. Feel Stronger. Live Healthier.</span>
   <span class="small">Hero photo by Laura Jaeger on Unsplash.</span>
+  <span class="small">As an Amazon Associate I earn from qualifying purchases.</span>
   <span class="small">&copy; <span id="year"></span> Glow Fit. Contains affiliate links.</span>
 </footer>
 <script src="script.js"></script>
